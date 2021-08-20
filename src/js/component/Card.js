@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function card(props) {
+function Card(props) {
     const loadPicture = name => {
         return name.toLowerCase().split("-") + ".jpg";
     };
@@ -32,4 +32,4 @@ function card(props) {
     );
 }
 
-export default card;
+export default Card;

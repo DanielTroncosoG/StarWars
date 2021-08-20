@@ -7,7 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			Species: null,
 			Films: null,
 			Starships: null,
-			Character: null
+			Character: null,
+			Favorites: []
 		},
 		actions: {
 			loadPeople: async url => {
