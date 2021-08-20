@@ -1,42 +1,59 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
+import "/workspace/react-hello-webapp/src/styles/layout.scss";
 
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import Films from "./views/Films";
+import Vehicles from "./views/Vehicles";
+import People from "./views/People";
+import Starships from "./views/Starships";
+import Species from "./views/Species";
+import Planets from "./views/Planets";
 
-//create your first component
 const Layout = () => {
-	//the basename is used when your project is published in a subdirectory and not in the root of the domain
-	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 
 	return (
 		<div className="d-flex flex-column">
-			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
-					<Footer />
-				</ScrollToTop>
+			<BrowserRouter>
+				<Navbar />
+				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
+					<Route exact path="/People">
+						<People />
+
+					</Route>
+					<Route exact path="/Vehicles">
+						<Vehicles />
+
+					</Route>
+					<Route exact path="/Films">
+						<Films />
+
+					</Route>
+					<Route exact path="/Starships">
+						<Starships />
+
+					</Route>
+					<Route exact path="/Species">
+						<Species />
+
+					</Route>
+					<Route exact path="/Planets">
+						<Planets />
+
+					</Route>
+					<Route>
+						<h1>Not found!</h1>
+					</Route>
+				</Switch>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
