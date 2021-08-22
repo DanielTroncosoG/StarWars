@@ -3,15 +3,15 @@ import getState from "./flux.js";
 
 export const Context = createContext(null);
 
-const injectContext = PassedComponent => {
+export default function injectContext(PassedComponent) {
 	const StoreWrapper = props => {
 		const [state, setState] = useState(
 			getState({
 				getStore: () => state.store,
 				getActions: () => state.actions,
-				setStore: updatedStore =>
+				setStore: updateStore =>
 					setState({
-						store: Object.assign(state.store, updatedStore),
+						store: Object.assign(state.store, updateStore),
 						actions: { ...state.actions }
 					})
 			})
@@ -32,6 +32,4 @@ const injectContext = PassedComponent => {
 		);
 	};
 	return StoreWrapper;
-};
-
-export default injectContext;
+}
