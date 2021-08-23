@@ -4,6 +4,7 @@ import { Context } from "../../store/appContext";
 import Pagination from "react-js-pagination";
 import Card from "../../component/Card";
 import Spinner from "../../component/Spinner";
+import "/workspace/StarWars/src/styles/People.scss";
 function People() {
 	const { store, actions } = useContext(Context);
 	const { people } = store;

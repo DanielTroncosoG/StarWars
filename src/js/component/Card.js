@@ -2,16 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Card(props) {
-	const loadPicture = name => {
-		return name.toLowerCase().split("-") + ".jpg";
+	const getImgName = name => {
+		return (
+			name
+				.toLowerCase()
+				.split(" ")
+				.join("-") + ".jpg"
+		);
 	};
 	return (
 		props.elements &&
-		props.elements.results.map((element, i) => (
-			<div className="col-md-4" id={"char_" + i} key={i}>
-				<div className="card my-3">
+		props.elements.results.map((element, index) => (
+			<div className="col-md-4" id={"char_" + index} key={index}>
+				<div className="card my-3 shadow animate__bounceIn animate__faster">
 					<img
-						src={`/img/${props.route}/${loadPicture(element.name)}`}
+						src={`/img/${props.route}/${getImgName(element.name)}`}
 						className="card-img-top"
 						alt={`img of ${element.name}`}
 					/>
@@ -25,7 +30,7 @@ function Card(props) {
 								.join("")
 								.toLowerCase()}/${element.uid}`}>
 							<button type="button" className="btn btn-outline-dark">
-								Info
+								Read more
 							</button>
 						</Link>
 					</div>

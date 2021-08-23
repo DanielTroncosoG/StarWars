@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "../styles/layout.scss";
 
 import home from "./views/Principal/home";
 import injectContext from "./store/appContext";
