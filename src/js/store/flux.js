@@ -1,129 +1,243 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			People: null,
-			Vehicles: null,
-			Planets: null,
-			Species: null,
-			Films: null,
-			Starships: null,
-			Character: null,
-			Favorites: []
+			people: null,
+			person: null,
+			vehicles: null,
+			vehicle: null,
+			planets: null,
+			planet: null,
+			species: null,
+			race: null,
+			starships: null,
+			starship: null,
+			favorites: []
 		},
 		actions: {
-			loadPeople: async url => {
+			loadPeople: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
 				try {
-					const response = await fetch(url, {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-					if (response.status !== 200) throw new Error("Error API");
+					const response = await fetch(url, options);
+					if (response.status !== 200) {
+						throw new Error({ message: "Error fetching People." });
+					}
 					const data = await response.json();
-					setStore({ People: data });
+					setStore({
+						people: data
+					});
 				} catch (error) {
 					setStore({
 						error: error.message
 					});
 				}
 			},
-			loadVehicles: async url => {
+			loadVehicles: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
 				try {
-					const response = await fetch(url, {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-					if (response.status !== 200) throw new Error("Error API");
+					const response = await fetch(url, options);
+					if (response.status !== 200) {
+						throw new Error({ message: "Error fetching Vehicles." });
+					}
 					const data = await response.json();
-					setStore({ Vehicles: data });
+					setStore({
+						vehicles: data
+					});
 				} catch (error) {
 					setStore({
 						error: error.message
 					});
 				}
 			},
-			loadPlanets: async url => {
+			loadPlanets: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
 				try {
-					const response = await fetch(url, {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-					if (response.status !== 200) throw new Error("Error API");
+					const response = await fetch(url, options);
+					if (response.status !== 200) {
+						throw new Error({ message: "Error fetching Planets." });
+					}
 					const data = await response.json();
-					setStore({ Planets: data });
+					setStore({
+						planets: data
+					});
 				} catch (error) {
 					setStore({
 						error: error.message
 					});
 				}
 			},
-			loadSpecies: async url => {
+			loadSpecies: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
 				try {
-					const response = await fetch(url, {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-					if (response.status !== 200) throw new Error("Error API");
+					const response = await fetch(url, options);
+					if (response.status !== 200) {
+						throw new Error({ message: "Error fetching Species." });
+					}
 					const data = await response.json();
-					setStore({ Species: data });
+					setStore({
+						species: data
+					});
 				} catch (error) {
 					setStore({
 						error: error.message
 					});
 				}
 			},
-			loadFilms: async url => {
+			loadStarships: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
 				try {
-					const response = await fetch(url, {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-					if (response.status !== 200) throw new Error("Error API");
+					const response = await fetch(url, options);
+					if (response.status !== 200) {
+						throw new Error({ message: "Error fetching Starships." });
+					}
 					const data = await response.json();
-					setStore({ Films: data });
+					setStore({
+						starships: data
+					});
 				} catch (error) {
 					setStore({
 						error: error.message
 					});
 				}
 			},
-			loadStarships: async url => {
+			loadPerson: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
 				try {
-					const response = await fetch(url, {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-					if (response.status !== 200) throw new Error("Error API");
+					const response = await fetch(url, options);
+					if (response.status !== 200) throw new Error("Error fetching Planet");
 					const data = await response.json();
-					setStore({ Starships: data });
+					setStore({
+						person: data
+					});
 				} catch (error) {
 					setStore({
 						error: error.message
 					});
 				}
 			},
-			loadCharacter: async url => {
+			loadPlanet: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
 				try {
-					const response = await fetch(url, {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-					if (response.status !== 200) throw new Error("Error API");
+					const response = await fetch(url, options);
+					if (response.status !== 200) throw new Error("Error fetching Planet");
 					const data = await response.json();
-					setStore({ Character: data });
+					setStore({
+						planet: data
+					});
+				} catch (error) {
+					setStore({
+						error: error.message
+					});
+				}
+			},
+			loadRace: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
+				try {
+					const response = await fetch(url, options);
+					if (response.status !== 200) throw new Error("Error fetching Planet");
+					const data = await response.json();
+					setStore({
+						race: data
+					});
+				} catch (error) {
+					setStore({
+						error: error.message
+					});
+				}
+			},
+			loadStarship: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
+				try {
+					const response = await fetch(url, options);
+					if (response.status !== 200) throw new Error("Error fetching Planet");
+					const data = await response.json();
+					setStore({
+						starship: data
+					});
+				} catch (error) {
+					setStore({
+						error: error.message
+					});
+				}
+			},
+			loadVehicle: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
+				try {
+					const response = await fetch(url, options);
+					if (response.status !== 200) throw new Error("Error fetching Planet");
+					const data = await response.json();
+					setStore({
+						vehicle: data
+					});
 				} catch (error) {
 					setStore({
 						error: error.message
@@ -140,7 +254,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 					if (response.status !== 200) throw new Error("Error API");
 					const data = await response.json();
-					setStore({ Favorites: data });
+					setStore({ favorites: data });
 				} catch (error) {
 					setStore({
 						error: error.message
@@ -148,14 +262,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			addFavorites: element => {
-				let { Favorites } = getStore();
-				Favorites.push(element);
-				setStore({ Favorites });
+				let { favorites } = getStore();
+				favorites.push(element);
+				setStore({ favorites });
 			},
 			removeFavorites: element => {
-				let { Favorites } = getStore();
-				let list = Favorites.filter(item => item !== element);
-				setStore({ Favorites: list });
+				let { favorites } = getStore();
+				let list = favorites.filter(item => item !== element);
+				setStore({ favorites: list });
 			}
 		}
 	};

@@ -4,6 +4,7 @@ import { Context } from "../../store/appContext";
 import Pagination from "react-js-pagination";
 import Card from "../../component/Card";
 import Spinner from "../../component/Spinner";
+import "/workspace/StarWars/src/styles/Planets.scss";
 
 function Planets() {
 	const { store, actions } = useContext(Context);
@@ -39,7 +40,7 @@ function Planets() {
 						)}
 					</div>
 				</div>
-				<div className="row bg-custom rounded-3 py-1">
+				<div className="row bg-custom rounded-3 py-1 px-3 m-3">
 					{!!planets ? <Card elements={planets} route="Planets" /> : <Spinner />}
 				</div>
 				<div className="row">
